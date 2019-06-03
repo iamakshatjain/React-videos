@@ -21,11 +21,15 @@ class App extends React.Component{
 		console.log(this.state.videos);
 	}
 
+	onVideoSelect = (video) => {
+		console.log("From the app.js",video.snippet);
+	}
+
 	render(){
 		return(
 			<div className="ui container">
 				<SearchBar onSubmit={this.onSearch}/>
-				<VideoList videos={this.state.videos}/>
+				<VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect}/>
 			</div>
 			);
 	}
