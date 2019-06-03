@@ -3,10 +3,11 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import YouTube from '../Api/YouTube';
 import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
 
 class App extends React.Component{
 
-	state = {videos : []}; 
+	state = {videos : [],selectedVideo:null}; 
 
 	onSearch = async (term) => {//whenever there is a search for a term
 		// console.log(term);
@@ -22,13 +23,15 @@ class App extends React.Component{
 	}
 
 	onVideoSelect = (video) => {
-		console.log("From the app.js",video.snippet);
+		// console.log("From the app.js",video.snippet);
+		this.setState({selectedVideo : video})
 	}
 
 	render(){
 		return(
 			<div className="ui container">
 				<SearchBar onSubmit={this.onSearch}/>
+				<VideoDetail video={this.state.selectedVideo}/>
 				<VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect}/>
 			</div>
 			);
