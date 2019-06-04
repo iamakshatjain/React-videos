@@ -10,6 +10,7 @@ class VideoDetail extends React.Component{
 				<div>
 					<div className="ui embed">
 						<iframe
+							title="video-player"
 							src={videoSrc} 
 							frameBorder="0" 
 							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
